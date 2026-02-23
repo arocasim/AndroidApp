@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/titleFilters"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Filters"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnClose"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Close"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:tint="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Categories (тимчасово як CheckBox) -->
+        <TextView
+            android:id="@+id/labelCategories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Categories"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleFilters" />
+
+        <LinearLayout
+            android:id="@+id/categoriesBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelCategories">
+
+            <CheckBox
+                android:id="@+id/cbCat1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem" />
+
+            <CheckBox
+                android:id="@+id/cbCat2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem" />
+
+            <CheckBox
+                android:id="@+id/cbCat3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem" />
+        </LinearLayout>
+
+        <!-- Style -->
+        <TextView
+            android:id="@+id/labelStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Style"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categoriesBox" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelStyle">
+
+            <RadioButton
+                android:id="@+id/rbS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S" />
+
+            <RadioButton
+                android:id="@+id/rbSS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SS" />
+
+            <RadioButton
+                android:id="@+id/rbSSS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SSS" />
+
+            <RadioButton
+                android:id="@+id/rbSSSS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SSSS" />
+        </RadioGroup>
+
+        <!-- Toggle (звичайний SwitchCompat) -->
+        <TextView
+            android:id="@+id/labelToggle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Lorem Ipsum Dolor"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/switchOption"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioGroupStyle" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/labelToggle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelToggle" />
+
+        <!-- Sort by -->
+        <TextView
+            android:id="@+id/labelSort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Sort by"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelToggle" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupSort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelSort">
+
+            <RadioButton
+                android:id="@+id/rbRecommended"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recommended" />
+
+            <RadioButton
+                android:id="@+id/rbBestMatch"
+                android:layout_width="123dp"
+                android:layout_height="wrap_content"
+                android:text="Best match" />
+
+            <RadioButton
+                android:id="@+id/rbNewest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Newest" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Reset"
+            app:layout_constraintEnd_toStartOf="@id/btnApply"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioGroupSort"
+            app:layout_constraintWidth_percent="0.48" />
+
+        <Button
+            android:id="@+id/btnApply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Apply"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnReset"
+            app:layout_constraintTop_toBottomOf="@id/radioGroupSort"
+            app:layout_constraintWidth_percent="0.48" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

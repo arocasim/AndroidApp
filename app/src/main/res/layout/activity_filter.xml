@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/titleFilters"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Filters"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnClose"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Close (X) -->
+        <ImageButton
+            android:id="@+id/btnClose"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Close"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            app:tint="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Categories -->
+        <TextView
+            android:id="@+id/labelCategories"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Categories"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleFilters" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupCategories"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:singleSelection="false"
+            app:selectionRequired="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelCategories">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipCat1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem"
+                app:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipCat2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem"
+                app:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipCat3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem"
+                app:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipCat4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem"
+                app:checkable="true" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Style -->
+        <TextView
+            android:id="@+id/labelStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Style"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chipGroupCategories" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:singleSelection="true"
+            app:selectionRequired="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelStyle">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="S"
+                app:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SS"
+                app:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSSS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SSS"
+                app:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSSSS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SSSS"
+                app:checkable="true" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Toggle -->
+        <TextView
+            android:id="@+id/labelToggle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Lorem Ipsum Dolor"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/switchOption"
+            app:layout_constraintTop_toBottomOf="@id/chipGroupStyle" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelToggle"
+            app:layout_constraintBottom_toBottomOf="@id/labelToggle" />
+
+        <!-- Sort by -->
+        <TextView
+            android:id="@+id/labelSort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Sort by"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelToggle" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupSort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:singleSelection="true"
+            app:selectionRequired="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelSort">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipRecommended"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Recommended"
+                app:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBestMatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Best match"
+                app:checkable="true" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipNewest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Newest"
+                app:checkable="true" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Buttons -->
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Reset"
+            android:backgroundTint="#EDE7F6"
+            android:textColor="#4A148C"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnApply"
+            app:layout_constraintTop_toBottomOf="@id/chipGroupSort"
+            app:layout_constraintWidth_percent="0.48" />
+
+        <Button
+            android:id="@+id/btnApply"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Apply"
+            android:backgroundTint="#311B92"
+            android:textColor="@android:color/white"
+            app:layout_constraintStart_toEndOf="@id/btnReset"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chipGroupSort"
+            app:layout_constraintWidth_percent="0.48" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
