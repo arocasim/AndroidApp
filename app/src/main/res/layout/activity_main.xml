@@ -27,7 +27,7 @@
         android:background="@android:color/transparent"
         android:contentDescription="Filters"
         android:src="@android:drawable/ic_menu_sort_by_size"
-        android:tint="@android:color/black"
+        app:tint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/searchInput"
         app:layout_constraintBottom_toBottomOf="@id/searchInput" />
