@@ -8,6 +8,19 @@
     android:padding="16dp"
     android:background="@color/background">
 
+    <!-- Хрестик закрити -->
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Close"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        app:tint="@color/text_primary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Заголовок -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
@@ -16,15 +29,17 @@
         android:textStyle="bold"
         android:textSize="20sp"
         android:textColor="@color/text_primary"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnClose"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <!-- Текст -->
     <TextView
         android:id="@+id/tvBody"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:text="Lorem ipsum dolor sit amet..."
         android:textSize="14sp"
         android:textColor="@color/text_primary"

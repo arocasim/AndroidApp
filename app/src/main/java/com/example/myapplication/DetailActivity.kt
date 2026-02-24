@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -10,11 +11,13 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        val title = intent.getStringExtra(EXTRA_TITLE) ?: "Lorem Ipsum"
-        val body = intent.getStringExtra(EXTRA_BODY) ?: "Lorem ipsum dolor sit amet..."
+        findViewById<TextView>(R.id.tvTitle).text =
+            intent.getStringExtra(EXTRA_TITLE) ?: "Lorem Ipsum"
 
-        findViewById<TextView>(R.id.tvTitle).text = title
-        findViewById<TextView>(R.id.tvBody).text = body
+        findViewById<TextView>(R.id.tvBody).text =
+            intent.getStringExtra(EXTRA_BODY) ?: "Lorem ipsum dolor sit amet..."
+
+        findViewById<ImageButton>(R.id.btnClose).setOnClickListener { finish() }
     }
 
     companion object {

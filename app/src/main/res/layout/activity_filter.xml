@@ -16,11 +16,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Filters"
-            android:textStyle="bold"
-            android:textSize="20sp"
             android:textColor="@color/text_primary"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/btnClose"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <!-- Close (X) -->
@@ -31,9 +31,9 @@
             android:background="@android:color/transparent"
             android:contentDescription="Close"
             android:src="@android:drawable/ic_menu_close_clear_cancel"
-            app:tint="@color/text_primary"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/text_primary" />
 
         <!-- Categories -->
         <TextView
@@ -42,8 +42,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Categories"
-            android:textStyle="bold"
             android:textColor="@color/text_primary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleFilters" />
 
@@ -52,19 +52,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:singleSelection="false"
-            app:selectionRequired="false"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/labelCategories">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelCategories"
+            app:selectionRequired="false"
+            app:singleSelection="false">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipCat1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
                 android:text="Lorem"
                 android:textColor="@color/text_primary"
-                app:checkable="true"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -73,9 +73,9 @@
                 android:id="@+id/chipCat2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
                 android:text="Lorem"
                 android:textColor="@color/text_primary"
-                app:checkable="true"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -84,9 +84,9 @@
                 android:id="@+id/chipCat3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
                 android:text="Lorem"
                 android:textColor="@color/text_primary"
-                app:checkable="true"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -95,9 +95,9 @@
                 android:id="@+id/chipCat4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
                 android:text="Lorem"
                 android:textColor="@color/text_primary"
-                app:checkable="true"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -110,8 +110,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Style"
-            android:textStyle="bold"
             android:textColor="@color/text_primary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/chipGroupCategories" />
 
@@ -120,19 +120,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:singleSelection="true"
-            app:selectionRequired="false"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/labelStyle">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelStyle"
+            app:selectionRequired="false"
+            app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
                 android:text="S"
                 android:textColor="@color/text_primary"
-                app:checkable="true"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -141,9 +141,9 @@
                 android:id="@+id/chipSS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
                 android:text="SS"
                 android:textColor="@color/text_primary"
-                app:checkable="true"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -152,9 +152,9 @@
                 android:id="@+id/chipSSS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
                 android:text="SSS"
                 android:textColor="@color/text_primary"
-                app:checkable="true"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -163,9 +163,9 @@
                 android:id="@+id/chipSSSS"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
                 android:text="SSSS"
                 android:textColor="@color/text_primary"
-                app:checkable="true"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -178,19 +178,19 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Lorem Ipsum Dolor"
-            android:textStyle="bold"
             android:textColor="@color/text_primary"
-            app:layout_constraintStart_toStartOf="parent"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/switchOption"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/chipGroupStyle" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchOption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/labelToggle"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/labelToggle"
-            app:layout_constraintBottom_toBottomOf="@id/labelToggle" />
+            app:layout_constraintTop_toTopOf="@id/labelToggle" />
 
         <!-- Sort by -->
         <TextView
@@ -199,8 +199,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="Sort by"
-            android:textStyle="bold"
             android:textColor="@color/text_primary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/labelToggle" />
 
@@ -209,19 +209,19 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            app:singleSelection="true"
-            app:selectionRequired="false"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/labelSort">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelSort"
+            app:selectionRequired="false"
+            app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipRecommended"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
                 android:text="Recommended"
                 android:textColor="@color/text_primary"
-                app:checkable="true"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -230,9 +230,9 @@
                 android:id="@+id/chipBestMatch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
                 android:text="Best match"
                 android:textColor="@color/text_primary"
-                app:checkable="true"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -241,9 +241,9 @@
                 android:id="@+id/chipNewest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkable="true"
                 android:text="Newest"
                 android:textColor="@color/text_primary"
-                app:checkable="true"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -255,11 +255,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Reset"
             android:backgroundTint="@color/primary_light"
+            android:text="Reset"
             android:textColor="@color/primary"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btnApply"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/chipGroupSort"
             app:layout_constraintWidth_percent="0.48" />
 
@@ -268,11 +268,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Apply"
             android:backgroundTint="@color/primary"
+            android:text="Apply"
             android:textColor="@color/white"
-            app:layout_constraintStart_toEndOf="@id/btnReset"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnReset"
             app:layout_constraintTop_toBottomOf="@id/chipGroupSort"
             app:layout_constraintWidth_percent="0.48" />
 

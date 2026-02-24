@@ -16,7 +16,6 @@ class FilterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filter)
 
-        // --- Views ---
         val btnClose = findViewById<ImageButton>(R.id.btnClose)
         val btnReset = findViewById<Button>(R.id.btnReset)
         val btnApply = findViewById<Button>(R.id.btnApply)
@@ -27,7 +26,6 @@ class FilterActivity : AppCompatActivity() {
 
         val sw = findViewById<SwitchCompat>(R.id.switchOption)
 
-        // --- Helpers ---
         fun clearChips(group: ChipGroup) {
             for (i in 0 until group.childCount) {
                 (group.getChildAt(i) as? Chip)?.isChecked = false
@@ -49,7 +47,6 @@ class FilterActivity : AppCompatActivity() {
             return res
         }
 
-        // --- Actions ---
         btnClose.setOnClickListener { finish() }
 
         btnReset.setOnClickListener {
@@ -60,13 +57,11 @@ class FilterActivity : AppCompatActivity() {
         }
 
         btnApply.setOnClickListener {
-            // Збираємо значення (навіть якщо ти не будеш реально фільтрувати — це плюс для лаби)
-            val categories = getCheckedChipTexts(chipCats)          // multi
-            val style = getSelectedChipText(chipStyle)             // single
-            val sortBy = getSelectedChipText(chipSort)             // single
+            val categories = getCheckedChipTexts(chipCats)
+            val style = getSelectedChipText(chipStyle)
+            val sortBy = getSelectedChipText(chipSort)
             val option = sw.isChecked
 
-            // Віддаємо назад в MainActivity
             val result = Intent().apply {
                 putStringArrayListExtra(EXTRA_CATEGORIES, categories)
                 putExtra(EXTRA_STYLE, style)
