@@ -8,11 +8,10 @@
     android:padding="16dp"
     android:background="@color/background">
 
-    <!-- Хрестик закрити -->
     <ImageButton
         android:id="@+id/btnClose"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:background="@android:color/transparent"
         android:contentDescription="Close"
         android:src="@android:drawable/ic_menu_close_clear_cancel"
@@ -20,7 +19,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <!-- Заголовок -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="0dp"
@@ -34,7 +32,6 @@
         app:layout_constraintEnd_toStartOf="@id/btnClose"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <!-- Текст -->
     <TextView
         android:id="@+id/tvBody"
         android:layout_width="0dp"

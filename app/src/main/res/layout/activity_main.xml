@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <!-- Контейнер, який центрує контент і обмежує ширину на планшеті -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/contentContainer"
         android:layout_width="0dp"
@@ -18,38 +17,43 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintWidth_max="720dp">
 
-        <!-- Search input -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/primary_light"
+            android:contentDescription="Back"
+            android:src="@android:drawable/ic_media_previous"
+            app:tint="@color/primary_dark"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/filterButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@color/primary_light"
+            android:contentDescription="Filters"
+            android:src="@android:drawable/ic_menu_sort_by_size"
+            app:tint="@color/primary_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
             android:id="@+id/searchInput"
             android:layout_width="0dp"
             android:layout_height="48dp"
+            android:layout_marginTop="12dp"
             android:hint="Search here..."
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/text_primary"
             android:textColorHint="@color/primary_dark"
             android:backgroundTint="@color/primary_light"
+            app:layout_constraintTop_toBottomOf="@id/btnBack"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/filterButton"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/chipGroupMain" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Filter button -->
-        <ImageButton
-            android:id="@+id/filterButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="8dp"
-            android:background="@color/primary_light"
-            android:contentDescription="Filters"
-            android:src="@android:drawable/ic_menu_sort_by_size"
-            app:tint="@color/primary_dark"
-            app:layout_constraintStart_toEndOf="@id/searchInput"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/searchInput"
-            app:layout_constraintBottom_toBottomOf="@id/searchInput" />
-
-        <!-- Chips under search -->
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chipGroupMain"
             android:layout_width="0dp"
@@ -91,11 +95,9 @@
                 android:checkable="true"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
-                app:chipStrokeWidth="1dp"
-                />
+                app:chipStrokeWidth="1dp" />
         </com.google.android.material.chip.ChipGroup>
 
-        <!-- List -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="0dp"
