@@ -24,9 +24,21 @@
             android:background="@color/primary_light"
             android:contentDescription="Back"
             android:src="@android:drawable/ic_media_previous"
-            app:tint="@color/primary_dark"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/primary_dark" />
+
+        <ImageButton
+            android:id="@+id/btnAdd"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="12dp"
+            android:background="@color/primary_light"
+            android:contentDescription="Add article"
+            android:src="@android:drawable/ic_input_add"
+            app:layout_constraintStart_toEndOf="@id/btnBack"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/primary_dark" />
 
         <ImageButton
             android:id="@+id/filterButton"
@@ -35,42 +47,42 @@
             android:background="@color/primary_light"
             android:contentDescription="Filters"
             android:src="@android:drawable/ic_menu_sort_by_size"
-            app:tint="@color/primary_dark"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/primary_dark" />
 
         <EditText
             android:id="@+id/searchInput"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="12dp"
+            android:backgroundTint="@color/primary_light"
             android:hint="Search here..."
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/text_primary"
             android:textColorHint="@color/primary_dark"
-            android:backgroundTint="@color/primary_light"
-            app:layout_constraintTop_toBottomOf="@id/btnBack"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/btnBack" />
 
         <com.google.android.material.chip.ChipGroup
             android:id="@+id/chipGroupMain"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            app:singleSelection="false"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/searchInput">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchInput"
+            app:singleSelection="false">
 
             <com.google.android.material.chip.Chip
                 android:id="@+id/chipMain1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lorem"
-                android:textColor="@color/text_primary"
                 android:checkable="true"
+                android:text="Technology"
+                android:textColor="@color/text_primary"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -79,9 +91,9 @@
                 android:id="@+id/chipMain2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum"
-                android:textColor="@color/text_primary"
                 android:checkable="true"
+                android:text="Science"
+                android:textColor="@color/text_primary"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -90,9 +102,9 @@
                 android:id="@+id/chipMain3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lorem"
-                android:textColor="@color/text_primary"
                 android:checkable="true"
+                android:text="Environment"
+                android:textColor="@color/text_primary"
                 app:chipBackgroundColor="@color/primary_light"
                 app:chipStrokeColor="@color/primary"
                 app:chipStrokeWidth="1dp" />
@@ -103,10 +115,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="12dp"
-            app:layout_constraintTop_toBottomOf="@id/chipGroupMain"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/chipGroupMain" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
