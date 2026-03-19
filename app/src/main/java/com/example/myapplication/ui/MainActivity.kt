@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.activity.result.contract.ActivityResultContracts
@@ -13,10 +14,9 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.myapplication.R
 import com.example.myapplication.adapter.ArticleAdapter
-import com.example.myapplication.data.TestDataProvider
 import com.example.myapplication.database.AppDatabase
 import com.example.myapplication.model.Article
-import com.example.myapplication.test.DatabaseTestHelper
+import com.example.myapplication.network.ApiClient
 import com.google.android.material.chip.Chip
 
 class MainActivity : AppCompatActivity() {
@@ -61,19 +61,15 @@ class MainActivity : AppCompatActivity() {
             .allowMainThreadQueries()
             .build()
 
-        // 🔹 Запуск тестових CRUD методів
-        val tester = DatabaseTestHelper(db)
-        tester.runAllTests()
-
         recyclerView = findViewById(R.id.recyclerView)
 
-        seedDatabase()
-        restoreLastFilter()
         setupRecyclerView()
+        restoreLastFilter()
         setupMainChips()
         setupSearch()
         setupButtons()
-        loadArticles()
+        seedDatabase()
+        loadFilters()
     }
 
     override fun onResume() {
@@ -209,8 +205,49 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun seedDatabase() {
-        if (db.articleDao().getAll().isEmpty()) {
-            TestDataProvider.getArticles().forEach { db.articleDao().insert(it) }
+        val client = ApiClient()
+
+        client.getArticles { data ->
+            runOnUiThread {
+                if (data != null) {
+                    db.articleDao().deleteAll()
+
+                    data.articles.forEach { article ->
+                        db.articleDao().insert(
+                            Article(
+                                title = article.title,
+                                subtitle = article.subtitle,
+                                content = article.content,
+                                author = article.author,
+                                category = article.category,
+                                date = article.date
+                            )
+                        )
+                    }
+
+                    Log.d("API", "Data loaded from server: ${data.articles.size} articles")
+                    loadArticles()
+                } else {
+                    Log.d("API", "Failed to load data from server")
+                }
+            }
+        }
+    }
+
+    private fun loadFilters() {
+        val client = ApiClient()
+
+        client.getFilters { data ->
+            runOnUiThread {
+                if (data != null) {
+                    Log.d("API_FILTERS", "Categories: ${data.filters.categories}")
+                    Log.d("API_FILTERS", "Styles: ${data.filters.styles}")
+                    Log.d("API_FILTERS", "Sort options: ${data.filters.sortOptions}")
+                    Log.d("API_FILTERS", "Only newest: ${data.filters.onlyNewest}")
+                } else {
+                    Log.d("API_FILTERS", "Failed to load filters")
+                }
+            }
         }
     }
 
