@@ -1,4 +1,4 @@
-package com.example.myapplication.ui
+package com.example.myapplication.ui.view
 
 import android.os.Bundle
 import android.widget.EditText
@@ -7,8 +7,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.example.myapplication.R
-import com.example.myapplication.database.AppDatabase
-import com.example.myapplication.model.Article
+import com.example.myapplication.data.local.database.AppDatabase
+import com.example.myapplication.data.model.Article
 import com.google.android.material.button.MaterialButton
 
 class EditArticleActivity : AppCompatActivity() {

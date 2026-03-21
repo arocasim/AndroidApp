@@ -1,4 +1,4 @@
-package com.example.myapplication.dao
+package com.example.myapplication.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,12 +6,12 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.myapplication.model.Article
+import com.example.myapplication.data.model.Article
 
 @Dao
 interface ArticleDao {
 
-    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(article: Article): Long
 
     @Query("SELECT * FROM articles ORDER BY id DESC")

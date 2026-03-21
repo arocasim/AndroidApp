@@ -1,4 +1,4 @@
-package com.example.myapplication.ui
+package com.example.myapplication.ui.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,19 +7,21 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
-import androidx.room.Room
 import com.example.myapplication.R
-import com.example.myapplication.database.AppDatabase
-import com.example.myapplication.model.FilterCategoryCrossRef
-import com.example.myapplication.model.SearchFilter
-import com.example.myapplication.network.ApiClient
-import com.example.myapplication.network.FiltersResponse
+import com.example.myapplication.data.api.FiltersResponse
+import com.example.myapplication.data.local.database.AppDatabase
+import com.example.myapplication.data.model.FilterCategoryCrossRef
+import com.example.myapplication.data.model.SearchFilter
+import com.example.myapplication.data.repository.ArticleRepository
+import com.example.myapplication.di.DiHelper
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 
 class FilterActivity : AppCompatActivity() {
 
     private lateinit var db: AppDatabase
+    private lateinit var repository: ArticleRepository
+
     private lateinit var chipCats: ChipGroup
     private lateinit var chipStyle: ChipGroup
     private lateinit var chipSort: ChipGroup
@@ -29,14 +31,8 @@ class FilterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filter)
 
-        db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java,
-            "article_database"
-        )
-            .fallbackToDestructiveMigration()
-            .allowMainThreadQueries()
-            .build()
+        db = DiHelper.getDatabase(this)
+        repository = DiHelper.getRepository(this)
 
         chipCats = findViewById(R.id.chipGroupCategories)
         chipStyle = findViewById(R.id.chipGroupStyle)
@@ -51,18 +47,16 @@ class FilterActivity : AppCompatActivity() {
     }
 
     private fun loadFiltersFromServer() {
-        val client = ApiClient()
-
-        client.getFilters { data ->
-            runOnUiThread {
-                if (data != null) {
-                    showFilters(data)
-                    restoreLastFilter()
-                } else {
-                    Log.d("API_FILTERS", "Failed to load filters")
-                }
+        repository.getFiltersFromServer(object : ArticleRepository.FiltersCallback {
+            override fun onSuccess(response: FiltersResponse) {
+                showFilters(response)
+                restoreLastFilter()
             }
-        }
+
+            override fun onFailure(message: String) {
+                Log.d("API_FILTERS", message)
+            }
+        })
     }
 
     private fun showFilters(data: FiltersResponse) {
@@ -70,16 +64,16 @@ class FilterActivity : AppCompatActivity() {
         chipStyle.removeAllViews()
         chipSort.removeAllViews()
 
-        data.filters.categories.forEach {
-            chipCats.addView(createChip(it))
+        data.filters.categories.forEach { category ->
+            chipCats.addView(createChip(category))
         }
 
-        data.filters.styles.forEach {
-            chipStyle.addView(createChip(it))
+        data.filters.styles.forEach { style ->
+            chipStyle.addView(createChip(style))
         }
 
-        data.filters.sortOptions.forEach {
-            chipSort.addView(createChip(it))
+        data.filters.sortOptions.forEach { sortOption ->
+            chipSort.addView(createChip(sortOption))
         }
     }
 
@@ -98,6 +92,7 @@ class FilterActivity : AppCompatActivity() {
         val lastFilter = db.searchFilterDao().getLastFilter() ?: return
 
         val categories = db.filterCategoryDao().getCategoriesForFilter(lastFilter.id)
+
         setCheckedChipsByTexts(chipCats, categories)
         setCheckedChipByText(chipStyle, lastFilter.style)
         setCheckedChipByText(chipSort, lastFilter.sortBy)
@@ -146,9 +141,13 @@ class FilterActivity : AppCompatActivity() {
             )
         ).toInt()
 
-        val crossRefs = categories.map {
-            FilterCategoryCrossRef(filterId = filterId, categoryName = it)
+        val crossRefs = categories.map { category ->
+            FilterCategoryCrossRef(
+                filterId = filterId,
+                categoryName = category
+            )
         }
+
         db.filterCategoryDao().insertAll(crossRefs)
 
         setResult(
@@ -177,15 +176,20 @@ class FilterActivity : AppCompatActivity() {
 
     private fun getCheckedChipTexts(group: ChipGroup): ArrayList<String> {
         val result = arrayListOf<String>()
+
         for (i in 0 until group.childCount) {
             val chip = group.getChildAt(i) as? Chip ?: continue
-            if (chip.isChecked) result.add(chip.text.toString())
+            if (chip.isChecked) {
+                result.add(chip.text.toString())
+            }
         }
+
         return result
     }
 
     private fun setCheckedChipByText(group: ChipGroup, text: String?) {
         if (text == null) return
+
         for (i in 0 until group.childCount) {
             val chip = group.getChildAt(i) as? Chip ?: continue
             chip.isChecked = chip.text.toString() == text

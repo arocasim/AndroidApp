@@ -1,4 +1,4 @@
-package com.example.myapplication.network
+package com.example.myapplication.data.api
 
 data class FiltersResponse(
     val filters: FilterData

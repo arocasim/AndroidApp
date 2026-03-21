@@ -15,19 +15,19 @@
         android:theme="@style/Theme.MyApplication">
 
         <activity
-            android:name=".ui.FilterActivity"
+            android:name=".ui.view.FilterActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.DetailActivity"
+            android:name=".ui.view.DetailActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.EditArticleActivity"
+            android:name=".ui.view.EditArticleActivity"
             android:exported="false" />
 
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -7,14 +7,15 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
-import com.example.myapplication.model.Article
+import com.example.myapplication.data.model.Article
 
 class ArticleAdapter(
-    private val items: List<Article>,
     private val onClick: (Article) -> Unit,
     private val onEdit: (Article) -> Unit,
     private val onDelete: (Article) -> Unit
 ) : RecyclerView.Adapter<ArticleAdapter.ArticleVH>() {
+
+    private val items = mutableListOf<Article>()
 
     class ArticleVH(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.articleTitle)
@@ -27,14 +28,14 @@ class ArticleAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleVH {
-        return ArticleVH(
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_article, parent, false)
-        )
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_article, parent, false)
+        return ArticleVH(view)
     }
 
     override fun onBindViewHolder(holder: ArticleVH, position: Int) {
         val item = items[position]
+
         holder.title.text = item.title
         holder.subtitle.text = item.subtitle
         holder.author.text = "Author: ${item.author}"
@@ -47,4 +48,10 @@ class ArticleAdapter(
     }
 
     override fun getItemCount(): Int = items.size
+
+    fun updateItems(newItems: List<Article>) {
+        items.clear()
+        items.addAll(newItems)
+        notifyDataSetChanged()
+    }
 }

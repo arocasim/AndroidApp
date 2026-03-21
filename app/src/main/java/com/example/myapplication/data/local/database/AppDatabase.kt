@@ -1,13 +1,13 @@
-package com.example.myapplication.database
+package com.example.myapplication.data.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.example.myapplication.model.Article
-import com.example.myapplication.dao.ArticleDao
-import com.example.myapplication.model.FilterCategoryCrossRef
-import com.example.myapplication.dao.FilterCategoryDao
-import com.example.myapplication.model.SearchFilter
-import com.example.myapplication.dao.SearchFilterDao
+import com.example.myapplication.data.model.Article
+import com.example.myapplication.data.local.dao.ArticleDao
+import com.example.myapplication.data.model.FilterCategoryCrossRef
+import com.example.myapplication.data.local.dao.FilterCategoryDao
+import com.example.myapplication.data.model.SearchFilter
+import com.example.myapplication.data.local.dao.SearchFilterDao
 
 @Database(
     entities = [

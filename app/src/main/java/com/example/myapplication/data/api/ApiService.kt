@@ -1,4 +1,4 @@
-package com.example.myapplication.network
+package com.example.myapplication.data.api
 
 import retrofit2.Call
 import retrofit2.http.GET

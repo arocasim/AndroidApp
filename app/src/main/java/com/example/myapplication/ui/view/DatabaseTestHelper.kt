@@ -1,8 +1,8 @@
 package com.example.myapplication.test
 
 import android.util.Log
-import com.example.myapplication.database.AppDatabase
-import com.example.myapplication.model.Article
+import com.example.myapplication.data.local.database.AppDatabase
+import com.example.myapplication.data.model.Article
 
 class DatabaseTestHelper(private val db: AppDatabase) {
 

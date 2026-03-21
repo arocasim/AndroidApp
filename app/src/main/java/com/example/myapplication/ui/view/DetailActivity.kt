@@ -1,4 +1,4 @@
-package com.example.myapplication.ui
+package com.example.myapplication.ui.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,9 +6,8 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
-import com.example.myapplication.ui.EditArticleActivity
 import com.example.myapplication.R
-import com.example.myapplication.database.AppDatabase
+import com.example.myapplication.data.local.database.AppDatabase
 import com.google.android.material.button.MaterialButton
 
 class DetailActivity : AppCompatActivity() {

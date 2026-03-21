@@ -1,4 +1,4 @@
-package com.example.myapplication.dao
+package com.example.myapplication.data.local.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.example.myapplication.model.SearchFilter
+import com.example.myapplication.data.model.SearchFilter
 
 @Dao
 interface SearchFilterDao {
